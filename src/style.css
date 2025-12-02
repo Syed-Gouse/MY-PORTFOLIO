@@ -1,0 +1,153 @@
+:root{
+--c-forest: #386641;
+--c-darkgreen: #6a994e;
+--c-lime: #a7c957;
+--c-cream: #f2e8cf;
+--c-red: #bc4749;
+
+
+--bg: var(--c-cream);
+--text: #112;
+--muted: #333;
+}
+
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+margin:0;
+font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+background: linear-gradient(180deg,var(--bg) 0%, #fff 100%);
+color:var(--text);
+-webkit-font-smoothing:antialiased;
+}
+.container{max-width:1100px;margin:0 auto;padding:1rem}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+.brand{font-weight:700;color:var(--c-forest);width: 200px;}
+.nav a{margin-left:1rem;text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--c-darkgreen)}
+
+
+.site-header{background:transparent;;position:sticky;top:0;backdrop-filter:blur(10px);z-index:20}
+
+
+.hero{padding:3rem 0}
+.hero-inner{display:grid;grid-template-columns:1fr 320px;gap:2rem;align-items:start}
+.hero h1{font-size:2.25rem;margin:0 0 .5rem}
+.lead{color:var(--muted);margin-bottom:1rem}
+.accent{color:var(--c-forest)}
+.hero-cta{display:flex;gap:.75rem}
+.btn{background:var(--c-forest);color:var(--c-cream);padding:.6rem 1rem;border-radius:12px;text-decoration:none;border:none;cursor:pointer}
+.btn-outline{background:transparent;border:2px solid var(--c-forest);color:var(--c-forest)}
+
+
+.hero-card{background:linear-gradient(180deg,var(--c-cream),#fff);padding:1rem;border-radius:12px;box-shadow:0 6px 18px rgba(34,34,34,.06)}
+.muted{color:var(--muted);font-size:.95rem}
+.skill-list{display:flex;gap:.5rem;list-style:none;padding:0;margin:.75rem 0 0}
+.skill-list li{background:var(--c-lime);padding:.25rem .6rem;border-radius:999px;font-weight:600}
+
+
+.section{padding:2.25rem 0}
+.section.alt{background:rgba(56,102,65,0.03)}
+.section h2{margin-bottom:1rem;color:var(--c-forest)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.card{background:white;padding:1rem;border-radius:12px;box-shadow:0 6px 18px rgba(34,34,34,.06)}
+.project-card h3{margin:0 0 .25rem}
+.tech{font-size:.85rem;color:var(--muted);margin:0.5rem 0}
+.card-actions{display:flex;gap:.5rem}
+.card-actions a{padding:.4rem .6rem;border-radius:8px;text-decoration:none;background:var(--c-cream);color:var(--c-forest);border:1px solid rgba(0,0,0,0.05)}
+.link-disabled{opacity:.5;padding:.4rem .6rem;border-radius:8px;display:inline-block}
+
+
+.contact-form{display:grid;gap:.5rem;max-width:540px}
+.contact-form label{display:flex;flex-direction:column;font-size:.9rem}
+.contact-form input, .contact-form textarea{padding:.6rem;border-radius:8px;border:1px solid #ddd;margin-top:.35rem}
+
+
+.site-footer{padding:1.25rem 0;text-align:center;color:var(--muted)}
+
+
+@media (max-width:880px){
+.hero-inner{grid-template-columns:1fr}
+.nav{display:none}
+}
+/* Projects button styles — high specificity to avoid overrides */
+.card .card-actions .project-btn,
+.card .card-actions a.project-btn,
+.card .card-actions button.project-btn {
+  display: inline-block;
+  padding: 0.45rem 0.8rem;
+  border-radius: 8px;
+  background: var(--c-cream);
+  color: var(--c-forest);
+  border: 1px solid rgba(0,0,0,0.08);
+  text-decoration: none;         /* for anchor */
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+  user-select: none;
+  will-change: transform, box-shadow;
+}
+
+/* Hover / focus */
+.card .card-actions .project-btn:hover,
+.card .card-actions .project-btn:focus,
+.card .card-actions a.project-btn:hover,
+.card .card-actions a.project-btn:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  outline: none;
+}
+
+/* Active (press) */
+.card .card-actions .project-btn:active,
+.card .card-actions a.project-btn:active,
+.card .card-actions button.project-btn:active {
+  transform: scale(0.94);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.10);
+}
+
+/* Accessible focus-visible */
+.card .card-actions .project-btn:focus-visible,
+.card .card-actions a.project-btn:focus-visible,
+.card .card-actions button.project-btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(106,153,78,0.18); /* soft green ring */
+}
+
+/* Disabled look (if you render disabled links) */
+.card .card-actions .link-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* small responsive tweak */
+@media (prefers-reduced-motion: reduce) {
+  .card .card-actions .project-btn { transition: none; transform: none; }
+}
+
+
+
+
+/* small utility */
+.muted{color:var(--muted)}
+
+#ViewProjects:hover{
+    color:white;
+}
+#brand{
+    background:#f2e8cf;
+    border-radius: 10%;
+    border-left: 10px;
+    
+}
+
+a,
+a:visited {
+  color: inherit;     
+  text-decoration: none;
+}
+a:hover {
+  color:var(--c-forest);      
+  text-decoration: underline; 
+}
