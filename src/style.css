@@ -23,7 +23,7 @@ color:var(--text);
 }
 .container{max-width:1100px;margin:0 auto;padding:1rem}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
-.brand{font-weight:700;color:var(--c-forest);width: 200px;}
+.brand{font-weight:700;color:var(--c-forest);width: 100px;}
 .nav a{margin-left:1rem;text-decoration:none;color:var(--muted)}
 .nav a:hover{color:var(--c-darkgreen)}
 
@@ -150,4 +150,79 @@ a:visited {
 a:hover {
   color:var(--c-forest);      
   text-decoration: underline; 
+}
+
+
+/* Hamburger button */
+.nav-toggle {
+  display: none;              /* shown only on small screens below */
+  background: transparent;
+  border: none;
+  padding: .35rem;
+  cursor: pointer;
+  align-items: center;
+  gap: .25rem;
+}
+.nav-toggle .bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 3px 0;
+  background: var(--c-forest);
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+/* when open, rotate bars into an X */
+.nav-toggle.open .bar:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+.nav-toggle.open .bar:nth-child(2) { opacity: 0; }
+.nav-toggle.open .bar:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+/* Desktop nav (keep existing look) */
+.nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Mobile behaviour */
+@media (max-width: 880px) {
+  /* show hamburger */
+  .nav-toggle { display: inline-flex; }
+
+  /* collapse nav by default on mobile */
+  .nav {
+    position: absolute;
+    top: 64px; /* adjust if your header height differs */
+    right: 1rem;
+    left: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: linear-gradient(180deg, var(--c-cream), #fff);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transform-origin: top right;
+    transform: scaleY(0);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .18s ease, opacity .18s ease;
+    z-index: 30;
+  }
+
+  /* visible when open */
+  .nav.open {
+    transform: scaleY(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Make nav links larger for touch */
+  .nav a {
+    padding: .6rem .4rem;
+    display: block;
+    font-weight: 600;
+  }
+
+  /* keep header inner layout compact on mobile */
+  .header-inner { gap: .5rem; }
 }
