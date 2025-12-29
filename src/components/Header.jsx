@@ -1,22 +1,22 @@
 import { useState } from 'react'
 
-export default function Header(){
+export default function Header() {
   const [open, setOpen] = useState(false)
   return (
     <header className="site-header">
       <div className="container header-inner">
         <div className="brand">Syed Gouse</div>
 
-        {/* Hamburger (mobile) */}
+
         <button
           className={`nav-toggle ${open ? 'open' : ''}`}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           onClick={() => setOpen(!open)}
         >
+          {/* <span className="bar" />
           <span className="bar" />
-          <span className="bar" />
-          <span className="bar" />
+          <span className="bar" /> */}
         </button>
 
         <nav className={`nav ${open ? 'open' : ''}`}>
@@ -25,6 +25,7 @@ export default function Header(){
           <a href="#about" onClick={() => setOpen(false)}>About</a>
           <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
         </nav>
+
       </div>
     </header>
   )
